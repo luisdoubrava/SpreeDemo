@@ -5,3 +5,4 @@ config/database.yml
 .DS_Store
 public/spree
 public/system
+public/assets
