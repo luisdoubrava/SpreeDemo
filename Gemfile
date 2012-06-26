@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -41,10 +41,12 @@ end
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 # To use Spree environment
-gem 'spree'
+gem 'spree', :git => "http://github.com/luisdoubrava/spree.git", :branch => "1-1-stable"
+# gem 'spree', :path => 'vendor/spree'
 gem 'spree_cmd'
 gem 'spree_usa_epay'
 gem 'spree_skrill'
+gem 'spree-homepager', :git => 'http://github.com/luisdoubrava/spree-homepager.git'
 
 # To use passenger
 gem 'passenger'
