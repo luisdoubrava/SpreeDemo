@@ -12,3 +12,5 @@
 //= require store/spree_promo
 
 //= require_tree .
+
+//= require store/jquery.cycle.all
