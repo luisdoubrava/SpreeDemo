@@ -1,16 +1,13 @@
+#banner-slideshow {
+  display: block;
+  margin: auto;
+}
+
 #banner-slideshow .banner .tagline{
   position:absolute;
   bottom:0px;
   width:740px;
   font-size:20px;
-  color:#fff;
-  padding-left:10px;
-}
-
-#banner-slideshow:after{
-	content: "";
-	visibility: hidden;
-	clear: both;
-	display: block;
-	height: 0px;
+  color:#000;
+  padding: 10px;
 }

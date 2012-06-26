@@ -1,6 +1,6 @@
 GIT
   remote: http://github.com/luisdoubrava/spree-homepager.git
-  revision: 8cd0d8dbdb1bed7102deefcd2536a318e485e999
+  revision: b92d60b61e8a92ff0fd3229ee69c6105c36fe088
   specs:
     spree-homepager (1.0.1)
       formtastic
