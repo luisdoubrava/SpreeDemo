@@ -1,4 +1,7 @@
 **/*.log
-tmp/
+tmp
+tmp/**/*
 config/database.yml
 .DS_Store
+public/spree
+public/system
