@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615120445) do
+ActiveRecord::Schema.define(:version => 20120625092853) do
 
   create_table "spree_activators", :force => true do |t|
     t.string   "description"
@@ -83,6 +83,20 @@ ActiveRecord::Schema.define(:version => 20120615120445) do
 
   add_index "spree_assets", ["viewable_id"], :name => "index_assets_on_viewable_id"
   add_index "spree_assets", ["viewable_type", "type"], :name => "index_assets_on_viewable_type_and_type"
+
+  create_table "spree_banners", :force => true do |t|
+    t.integer  "position"
+    t.string   "tagline"
+    t.string   "target_url"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.boolean  "visible"
+    t.string   "place"
+  end
 
   create_table "spree_calculators", :force => true do |t|
     t.string   "type"
@@ -298,7 +312,7 @@ ActiveRecord::Schema.define(:version => 20120615120445) do
   add_index "spree_product_properties", ["product_id"], :name => "index_product_properties_on_product_id"
 
   create_table "spree_products", :force => true do |t|
-    t.string   "name",                 :default => "", :null => false
+    t.string   "name",                 :default => "",    :null => false
     t.text     "description"
     t.datetime "available_on"
     t.datetime "deleted_at"
@@ -307,9 +321,10 @@ ActiveRecord::Schema.define(:version => 20120615120445) do
     t.string   "meta_keywords"
     t.integer  "tax_category_id"
     t.integer  "shipping_category_id"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.integer  "count_on_hand",        :default => 0,  :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+    t.integer  "count_on_hand",        :default => 0,     :null => false
+    t.boolean  "show_on_homepage",     :default => false
   end
 
   add_index "spree_products", ["available_on"], :name => "index_products_on_available_on"
@@ -449,6 +464,19 @@ ActiveRecord::Schema.define(:version => 20120615120445) do
     t.datetime "updated_at",     :null => false
   end
 
+  create_table "spree_slides", :force => true do |t|
+    t.string   "name"
+    t.text     "body"
+    t.string   "link_url"
+    t.boolean  "published"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "spree_state_changes", :force => true do |t|
     t.string   "name"
     t.string   "previous_state"
@@ -465,6 +493,16 @@ ActiveRecord::Schema.define(:version => 20120615120445) do
     t.string  "abbr"
     t.integer "country_id"
   end
+
+  create_table "spree_suggestions", :force => true do |t|
+    t.string   "keywords"
+    t.integer  "count"
+    t.integer  "items_found"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "spree_suggestions", ["keywords", "count", "items_found"], :name => "index_spree_suggestions_on_keywords_and_count_and_items_found"
 
   create_table "spree_tax_categories", :force => true do |t|
     t.string   "name"

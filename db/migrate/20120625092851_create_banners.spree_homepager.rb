@@ -1,0 +1,19 @@
+# This migration comes from spree_homepager (originally 20110222140303)
+class CreateBanners < ActiveRecord::Migration
+  def self.up
+    create_table :spree_banners do |t|
+      t.integer   :position
+      t.string    :tagline
+      t.string    :target_url
+      t.string    :image_file_name
+      t.string    :image_content_type
+      t.integer   :image_file_size
+      t.datetime  :image_updated_at
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :spree_banners
+  end
+end
