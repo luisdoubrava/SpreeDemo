@@ -10,6 +10,9 @@ require 'rvm/capistrano'
 require 'capistrano/ext/multistage'
 #require 'bundler/capistrano'
 
+# Let Capistrano take care of assets precompilation
+load "deploy/assets"
+
 # Set it to the ruby + gemset of your app, e.g:
 set :rvm_ruby_string, 'ruby-1.9.3-p125@spreedemo'
 set :rvm_type, :system
